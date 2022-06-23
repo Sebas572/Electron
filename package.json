@@ -1,0 +1,42 @@
+{
+  "name": "Electron",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron index.js",
+    "build:linux": "electron-builder --linux",
+    "build:win": "electron-builder --win"
+  },
+  "build": {
+    "appId": "my.app",
+    "linux": {
+      "desktop": {
+        "StartupNotify": false,
+        "Encoding": "UTF-8",
+        "MimeType": "x-scheme-handler/deeplink"
+      },
+      "category": "utility",
+      "target": [
+        "AppImage"
+      ]
+    },
+    "win": {
+      "target": [{
+        "target": "nsis",
+        "arch": [
+          "x64",
+          "ia32"
+        ]
+      }]
+    }
+  },
+  "devDependencies": {
+    "chalk": "^5.0.1",
+    "electron": "^19.0.6",
+    "electron-builder": "^23.1.0"
+  },
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}
